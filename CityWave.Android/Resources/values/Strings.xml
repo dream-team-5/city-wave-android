@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">CityWave.Android</string>
+  <string name="app_name">City Wave</string>
+  <string name="app_theme">@android:style/Theme.Material.Light</string>
 </resources>

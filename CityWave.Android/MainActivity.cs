@@ -1,10 +1,9 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
 
 namespace CityWave.Android
 {
-    [Activity(Label = "CityWave.Android", MainLauncher = true)]
+    [Activity(Label = "City Wave", MainLauncher = true)]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

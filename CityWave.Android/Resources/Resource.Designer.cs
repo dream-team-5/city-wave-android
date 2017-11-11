@@ -63,6 +63,9 @@ namespace CityWave.Android
 			// aapt resource value: 0x7f030000
 			public const int app_name = 2130903040;
 			
+			// aapt resource value: 0x7f030001
+			public const int app_theme = 2130903041;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
