@@ -49,6 +49,9 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CityWave.Api">
+      <HintPath>..\..\CityWave.Api\CityWave.Api\bin\Release\netstandard2.0\CityWave.Api.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
