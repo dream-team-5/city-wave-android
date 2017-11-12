@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Views;
 
 namespace CityWave.Android
 {
@@ -10,8 +11,9 @@ namespace CityWave.Android
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
+            RequestWindowFeature(WindowFeatures.NoTitle);
+
+            SetContentView(Resource.Layout.LogIn);
         }
     }
 }
