@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Views;
 
 namespace CityWave.Android
 {
@@ -10,8 +9,6 @@ namespace CityWave.Android
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            RequestWindowFeature(WindowFeatures.NoTitle);
 
             SetContentView(Resource.Layout.LogIn);
         }
