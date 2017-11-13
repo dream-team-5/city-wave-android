@@ -1,53 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100">
-    <TextView
-        android:text="City Wave"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    android:padding="5dp">
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="30"
-        android:gravity="center"
-        android:textSize="40dp"
-        android:layout_margin="5dp" />
-    <EditText
-        android:inputType="textPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/UsernameEditText"
-        android:layout_weight="8"
-        android:layout_margin="5dp"
-        android:hint="Username"
-        android:gravity="center" />
-    <EditText
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/PasswordEditText"
-        android:layout_weight="8"
-        android:layout_margin="5dp"
-        android:gravity="center"
-        android:hint="Password"
-        android:fontFamily="sans-serif" />
-    <Button
-        android:text="Log In"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/LoginButton"
-        android:layout_weight="8"
-        android:layout_margin="5dp"
-        android:textSize="18dp"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/SkipButton"
+        android:weightSum="18">
+        <TextView
+            android:text="City Wave"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:gravity="center"
+            android:textSize="40dp" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/UsernameEditText"
+            android:layout_weight="1"
+            android:hint="Username"
+            android:gravity="center" />
+        <EditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PasswordEditText"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Password"
+            android:fontFamily="sans-serif" />
+        <Button
+            android:text="Log In"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LoginButton"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:textAllCaps="false" />
+    </LinearLayout>
     <Button
         android:text="Skip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SkipButton"
-        android:layout_weight="8"
-        android:layout_margin="5dp"
         android:textSize="18dp"
-        android:textAllCaps="false" />
-</LinearLayout>
+        android:textAllCaps="false"
+        style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
