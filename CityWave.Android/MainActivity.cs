@@ -10,7 +10,10 @@ namespace CityWave.Android
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.LogIn);
+            using (var prefs = new Preferences(this))
+                StartActivity(prefs.Token == null ? typeof(LoginActivity) : typeof(HomeActivity));
+
+            Finish();
         }
     }
 }

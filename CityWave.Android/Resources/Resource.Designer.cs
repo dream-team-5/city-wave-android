@@ -44,17 +44,23 @@ namespace CityWave.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040003
-			public const int LoginButton = 2130968579;
+			// aapt resource value: 0x7f040005
+			public const int LoginButton = 2130968581;
 			
-			// aapt resource value: 0x7f040002
-			public const int PasswordEditText = 2130968578;
-			
-			// aapt resource value: 0x7f040000
-			public const int SkipButton = 2130968576;
+			// aapt resource value: 0x7f040004
+			public const int PasswordEditText = 2130968580;
 			
 			// aapt resource value: 0x7f040001
-			public const int UsernameEditText = 2130968577;
+			public const int ResetButton = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int SkipButton = 2130968578;
+			
+			// aapt resource value: 0x7f040000
+			public const int TokenTextView = 2130968576;
+			
+			// aapt resource value: 0x7f040003
+			public const int UsernameEditText = 2130968579;
 			
 			static Id()
 			{
@@ -70,7 +76,10 @@ namespace CityWave.Android
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int LogIn = 2130837504;
+			public const int Home = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Login = 2130837505;
 			
 			static Layout()
 			{
