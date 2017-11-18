@@ -90,8 +90,7 @@ namespace CityWave.Android
 
         private void OnLoginSuccess(Client client)
         {
-            using (var prefs = new Preferences(this))
-                prefs.Token = client.Token;
+            Preferences.Token = client.Token;
 
             StartActivity(typeof(HomeActivity));
 

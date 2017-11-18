@@ -15,6 +15,15 @@ namespace CityWave.Android
 
             SetContentView(Resource.Layout.Home);
 
+            var citySpinner = FindViewById<Spinner>(Resource.Id.CitySpinner);
+            citySpinner.Adapter = new CitySpinnerAdapter(this);
+            citySpinner.ItemSelected += (s, e) => Preferences.CityId = e.Id;
+
+            CreateTabs();
+        }
+
+        private void CreateTabs()
+        {
             CreateTab(typeof(PlacesActivity), "places", Resource.Drawable.HomeTabPlaces);
             CreateTab(typeof(CategoriesActivity), "categories", Resource.Drawable.HomeTabCategories);
             CreateTab(typeof(ProfileActivity), "profile", Resource.Drawable.HomeTabProfile);

@@ -10,8 +10,7 @@ namespace CityWave.Android
         {
             base.OnCreate(savedInstanceState);
 
-            using (var prefs = new Preferences(this))
-                StartActivity(prefs.Token == null ? typeof(LoginActivity) : typeof(HomeActivity));
+            StartActivity(Preferences.Token == null ? typeof(LoginActivity) : typeof(HomeActivity));
 
             Finish();
         }

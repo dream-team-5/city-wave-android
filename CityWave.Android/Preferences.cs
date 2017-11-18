@@ -1,39 +1,65 @@
-﻿using Android.Content;
-using Android.Preferences;
+﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CityWave.Android
 {
-    public class Preferences : IDisposable
+    public static class Preferences
     {
-        private ISharedPreferences _preferences;
+        private const string _filename = "preferences.json";
 
-        public Preferences(Context context)
-            => _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
+        private static readonly string _path;
+        private static Dictionary<string, object> _preferences;
 
-        private const string TokenKey = "token";
-        private string _token;
-        public string Token
+        static Preferences()
         {
-            get => _token ?? (_token = _preferences.GetString(TokenKey, null));
+            _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), _filename);
 
-            set
+            if (File.Exists(_path))
+                using (var reader = new StreamReader(_path))
+                    _preferences = JsonConvert.DeserializeObject<Dictionary<string, object>>(reader.ReadToEnd());
+            else
             {
-                using (var editor = _preferences.Edit())
-                {
-                    if (value != null)
-                        editor.PutString(TokenKey, value);
-                    else
-                        editor.Remove(TokenKey);
+                _preferences = new Dictionary<string, object>();
 
-                    editor.Apply();
-                }
-
-                _token = value;
+                using (var writer = new StreamWriter(_path))
+                    writer.Write(JsonConvert.SerializeObject(_preferences));
             }
         }
 
-        public void Dispose() 
-            => _preferences.Dispose();
+        private static void Write(string key, object value)
+        {
+            _preferences[key] = value;
+
+            using (var writer = new StreamWriter(_path))
+                writer.Write(JsonConvert.SerializeObject(_preferences));
+        }
+
+        private const string TokenKey = "token";
+        public static string Token
+        {
+            get => _preferences.GetValueOrDefault(TokenKey) as string;
+            set
+            {
+                Write(TokenKey, value);
+
+                TokenChanged?.Invoke(Token);
+            }
+        }
+        public static event Action<string> TokenChanged;
+
+        private const string CityIdKey = "city_id";
+        public static long? CityId
+        {
+            get => _preferences.GetValueOrDefault(CityIdKey) as long?;
+            set
+            {
+                Write(CityIdKey, value);
+
+                CityIdChanged?.Invoke(CityId);
+            }
+        }
+        public static event Action<long?> CityIdChanged;
     }
 }
