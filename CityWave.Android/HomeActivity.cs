@@ -1,11 +1,13 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
+using System;
 
 namespace CityWave.Android
 {
     [Activity(Label = "HomeActivity")]
-    public class HomeActivity : Activity
+    public class HomeActivity : TabActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -13,18 +15,23 @@ namespace CityWave.Android
 
             SetContentView(Resource.Layout.Home);
 
-            FindViewById<Button>(Resource.Id.ResetButton).Click += (s, e) =>
+            CreateTab(typeof(PlacesActivity), "places", Resource.Drawable.HomeTabPlaces);
+            CreateTab(typeof(CategoriesActivity), "categories", Resource.Drawable.HomeTabCategories);
+            CreateTab(typeof(ProfileActivity), "profile", Resource.Drawable.HomeTabProfile);
+            CreateTab(typeof(SettingsActivity), "settings", Resource.Drawable.HomeTabSettings);
+
+            void CreateTab(Type activityType, string tag, int drawableId)
             {
-                using (var prefs = new Preferences(this))
-                    prefs.Token = null;
+                var intent = new Intent(this, activityType);
+                intent.AddFlags(ActivityFlags.NewTask);
 
-                StartActivity(typeof(LoginActivity));
+                var spec = TabHost.NewTabSpec(tag);
 
-                Finish();
-            };
+                spec.SetContent(intent);
+                spec.SetIndicator((string)null, GetDrawable(drawableId));
 
-            using (var prefs = new Preferences(this))
-                FindViewById<TextView>(Resource.Id.TokenTextView).Text = prefs.Token;
+                TabHost.AddTab(spec);
+            }
         }
     }
 }
