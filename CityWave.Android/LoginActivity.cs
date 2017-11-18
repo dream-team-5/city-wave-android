@@ -81,7 +81,7 @@ namespace CityWave.Android
 
             void RemoveError(object sender, TextChangedEventArgs e)
             {
-                ((EditText)sender).SetHintTextColor(Color.Black);
+                ((EditText)sender).SetHintTextColor(Color.Argb(255, 122, 122, 122));
                 ((EditText)sender).SetTextColor(Color.Black);
 
                 ((EditText)sender).BeforeTextChanged -= RemoveError;
