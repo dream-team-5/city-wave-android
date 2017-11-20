@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:gravity="center"
-    android:textSize="20dp"
-    android:id="@+id/PlaceNameTextView"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp">
-</TextView>
+    android:layout_height="wrap_content">
+    <ImageView
+       android:id="@+id/PlacePictureImageView"
+       android:layout_width="match_parent"
+       android:layout_height="150dp"
+       android:scaleType="centerCrop" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:id="@+id/PlaceNameTextView"
+        android:layout_alignLeft="@+id/PlacePictureImageView"
+        android:layout_alignTop="@+id/PlacePictureImageView"
+        android:layout_alignRight="@+id/PlacePictureImageView"
+        android:layout_alignBottom="@+id/PlacePictureImageView" />
+</RelativeLayout>
