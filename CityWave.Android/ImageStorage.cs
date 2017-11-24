@@ -28,7 +28,7 @@ namespace CityWave.Android
             if (!File.Exists(filename) || (DateTime.Now - File.GetCreationTime(filename)).TotalDays >= 2)
                 using (var httpClient = new HttpClient())
                 using (var responseStream = await httpClient.GetStreamAsync(imageUrl))
-                using (var imageStream = new FileStream(filename, FileMode.CreateNew))
+                using (var imageStream = new FileStream(filename, FileMode.Create))
                     await responseStream.CopyToAsync(imageStream);
 
             return filename;
