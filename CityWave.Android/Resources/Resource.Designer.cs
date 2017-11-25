@@ -108,6 +108,9 @@ namespace CityWave.Android
 			// aapt resource value: 0x7f050005
 			public const int PasswordEditText = 2131034117;
 			
+			// aapt resource value: 0x7f05000a
+			public const int PlaceAddressTextView = 2131034122;
+			
 			// aapt resource value: 0x7f050009
 			public const int PlaceNameTextView = 2131034121;
 			

@@ -56,6 +56,7 @@ namespace CityWave.Android
             var view = convertView ?? LayoutInflater.From(_context).Inflate(Resource.Layout.PlacesListItem, null, false);
 
             view.FindViewById<TextView>(Resource.Id.PlaceNameTextView).Text = _items[position].Name;
+            view.FindViewById<TextView>(Resource.Id.PlaceAddressTextView).Text = _items[position].Address;
             view.FindViewById<ImageView>(Resource.Id.PlacePictureImageView).SetImageBitmap(BitmapFactory.DecodeFile(_images[position]));
 
             return view;
