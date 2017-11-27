@@ -4,6 +4,7 @@ using Android.Views;
 using Android.Widget;
 using CityWave.Api;
 using CityWave.Api.Types;
+using System;
 using System.Threading.Tasks;
 
 namespace CityWave.Android
@@ -15,6 +16,10 @@ namespace CityWave.Android
         private string[] _images;
         private Client _apiClient;
 
+        public event Action ItemsLoaded;
+
+        public event Action ItemsLoading;
+
         public PlacesListAdapter(Context context)
         {
             _context = context;
@@ -25,6 +30,8 @@ namespace CityWave.Android
 
         public async void LoadItems(long cityId, int? page = null)
         {
+            ItemsLoading?.Invoke();
+
             await _apiClient.GetCityPlaces(1, page: page).Process(
                 places =>
                 {
@@ -40,6 +47,8 @@ namespace CityWave.Android
             );
 
             NotifyDataSetChanged();
+
+            ItemsLoaded?.Invoke();
         }
 
         public override ShortPlace this[int position]

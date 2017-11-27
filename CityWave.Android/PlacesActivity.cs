@@ -14,12 +14,20 @@ namespace CityWave.Android
             SetContentView(Resource.Layout.Places);
 
             var placesList = FindViewById<ListView>(Resource.Id.PlacesListView);
-            placesList.Adapter = new PlacesListAdapter(this);
+            var adapter = new PlacesListAdapter(this);
+
+            placesList.Adapter = adapter;
+
+            adapter.ItemsLoading += ()
+                => FindViewById<ProgressBar>(Resource.Id.PlacesProgressBar).Visibility = global::Android.Views.ViewStates.Visible;
+
+            adapter.ItemsLoaded += ()
+                => FindViewById<ProgressBar>(Resource.Id.PlacesProgressBar).Visibility = global::Android.Views.ViewStates.Invisible;
 
             Preferences.CityIdChanged += cityId =>
             {
                 if (cityId.HasValue)
-                    ((PlacesListAdapter)placesList.Adapter).LoadItems(cityId.Value);
+                    adapter.LoadItems(cityId.Value);
             };
         }
     }

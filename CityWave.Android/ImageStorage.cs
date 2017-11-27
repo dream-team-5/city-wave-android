@@ -26,12 +26,20 @@ namespace CityWave.Android
             var filename = Path.Combine(_path, $"{ prefix }_{ id }");
 
             if (!File.Exists(filename) || (DateTime.Now - File.GetCreationTime(filename)).TotalDays >= 2)
-                using (var httpClient = new HttpClient())
-                using (var responseStream = await httpClient.GetStreamAsync(imageUrl))
-                using (var imageStream = new FileStream(filename, FileMode.Create))
-                    await responseStream.CopyToAsync(imageStream);
+                await LoadImage(filename, imageUrl);
 
             return filename;
+        }
+
+        private static async Task LoadImage(string filename, string imageUrl)
+        {
+            if (File.Exists(filename))
+                File.Delete(filename);
+
+            using (var httpClient = new HttpClient())
+            using (var responseStream = await httpClient.GetStreamAsync(imageUrl))
+            using (var imageStream = new FileStream(filename, FileMode.CreateNew))
+                await responseStream.CopyToAsync(imageStream);
         }
     }
 }
