@@ -17,7 +17,6 @@ namespace CityWave.Android
         private Client _apiClient;
 
         public event Action ItemsLoaded;
-
         public event Action ItemsLoading;
 
         public PlacesListAdapter(Context context)

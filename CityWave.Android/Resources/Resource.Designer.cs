@@ -63,22 +63,25 @@ namespace CityWave.Android
 			public const int HomeTabSettings = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int PlacesTab = 2130837510;
+			public const int Logo = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int PlacesTabSelected = 2130837511;
+			public const int PlacesTab = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ProfileTab = 2130837512;
+			public const int PlacesTabSelected = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int ProfileTabSelected = 2130837513;
+			public const int ProfileTab = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int SettingsTab = 2130837514;
+			public const int ProfileTabSelected = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int SettingsTabSelected = 2130837515;
+			public const int SettingsTab = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int SettingsTabSelected = 2130837516;
 			
 			static Drawable()
 			{
@@ -93,41 +96,53 @@ namespace CityWave.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int CityLayout = 2131034113;
+			// aapt resource value: 0x7f060000
+			public const int CategoriesListView = 2131099648;
 			
-			// aapt resource value: 0x7f050000
-			public const int CityNameTextView = 2131034112;
+			// aapt resource value: 0x7f060001
+			public const int CategoriesProgressBar = 2131099649;
 			
-			// aapt resource value: 0x7f050002
-			public const int CitySpinner = 2131034114;
+			// aapt resource value: 0x7f060002
+			public const int CategoryNameTextView = 2131099650;
 			
-			// aapt resource value: 0x7f050006
-			public const int LoginButton = 2131034118;
+			// aapt resource value: 0x7f060004
+			public const int CityLayout = 2131099652;
 			
-			// aapt resource value: 0x7f050005
-			public const int PasswordEditText = 2131034117;
+			// aapt resource value: 0x7f060003
+			public const int CityNameTextView = 2131099651;
 			
-			// aapt resource value: 0x7f05000b
-			public const int PlaceAddressTextView = 2131034123;
+			// aapt resource value: 0x7f060005
+			public const int CitySpinner = 2131099653;
 			
-			// aapt resource value: 0x7f05000a
-			public const int PlaceNameTextView = 2131034122;
+			// aapt resource value: 0x7f060009
+			public const int LoginButton = 2131099657;
 			
-			// aapt resource value: 0x7f050009
-			public const int PlacePictureImageView = 2131034121;
+			// aapt resource value: 0x7f06000f
+			public const int LogoutButton = 2131099663;
 			
-			// aapt resource value: 0x7f050007
-			public const int PlacesListView = 2131034119;
+			// aapt resource value: 0x7f060008
+			public const int PasswordEditText = 2131099656;
 			
-			// aapt resource value: 0x7f050008
-			public const int PlacesProgressBar = 2131034120;
+			// aapt resource value: 0x7f06000e
+			public const int PlaceAddressTextView = 2131099662;
 			
-			// aapt resource value: 0x7f050003
-			public const int SkipButton = 2131034115;
+			// aapt resource value: 0x7f06000d
+			public const int PlaceNameTextView = 2131099661;
 			
-			// aapt resource value: 0x7f050004
-			public const int UsernameEditText = 2131034116;
+			// aapt resource value: 0x7f06000c
+			public const int PlacePictureImageView = 2131099660;
+			
+			// aapt resource value: 0x7f06000a
+			public const int PlacesListView = 2131099658;
+			
+			// aapt resource value: 0x7f06000b
+			public const int PlacesProgressBar = 2131099659;
+			
+			// aapt resource value: 0x7f060006
+			public const int SkipButton = 2131099654;
+			
+			// aapt resource value: 0x7f060007
+			public const int UsernameEditText = 2131099655;
 			
 			static Id()
 			{
@@ -146,25 +161,28 @@ namespace CityWave.Android
 			public const int Categories = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int CitySpinnerItem = 2130903041;
+			public const int CategoriesListItem = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Home = 2130903042;
+			public const int CitySpinnerItem = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Login = 2130903043;
+			public const int Home = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Places = 2130903044;
+			public const int Login = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int PlacesListItem = 2130903045;
+			public const int Places = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Profile = 2130903046;
+			public const int PlacesListItem = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int Settings = 2130903047;
+			public const int Profile = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int Settings = 2130903048;
 			
 			static Layout()
 			{
@@ -191,6 +209,22 @@ namespace CityWave.Android
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int app_theme = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

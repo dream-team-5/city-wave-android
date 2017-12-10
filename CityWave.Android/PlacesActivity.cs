@@ -24,6 +24,9 @@ namespace CityWave.Android
             adapter.ItemsLoaded += ()
                 => FindViewById<ProgressBar>(Resource.Id.PlacesProgressBar).Visibility = global::Android.Views.ViewStates.Invisible;
 
+            if (Preferences.CityId.HasValue)
+                adapter.LoadItems(Preferences.CityId.Value);
+
             Preferences.CityIdChanged += cityId =>
             {
                 if (cityId.HasValue)
