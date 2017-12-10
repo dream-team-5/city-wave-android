@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Widget;
 
 namespace CityWave.Android
 {
@@ -11,6 +12,17 @@ namespace CityWave.Android
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Settings);
+
+            FindViewById<Button>(Resource.Id.LogoutButton).Click += LogoutButton_Click;
+        }
+
+        private void LogoutButton_Click(object sender, System.EventArgs e)
+        {
+            Preferences.Clear();
+
+            StartActivity(typeof(LoginActivity));
+
+            Finish();
         }
     }
 }
