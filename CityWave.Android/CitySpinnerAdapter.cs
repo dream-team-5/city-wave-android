@@ -15,16 +15,33 @@ namespace CityWave.Android
         public CitySpinnerAdapter(Context context)
         {
             _context = context;
-            _items = new City[0];
             _apiClient = new Client(Preferences.Token);
 
+            if (!TryLoadItemsFromCache())
+                _items = new City[0];
+
             LoadItems();
+        }
+
+        private bool TryLoadItemsFromCache()
+        {
+            var cached = Preferences.Cities;
+
+            if (cached != null)
+            {
+                _items = cached;
+                NotifyDataSetChanged();
+
+                return true;
+            }
+
+            return false;
         }
 
         private async void LoadItems()
         {
             await _apiClient.GetCities().Process(
-                citites => _items = citites,
+                cities => _items = Preferences.Cities = cities,
                 error => Toast.MakeText(_context, error as string, ToastLength.Long).Show()
             );
 
